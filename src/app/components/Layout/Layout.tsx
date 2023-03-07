@@ -1,5 +1,4 @@
 import { FC, ReactNode } from "react"
-import logoWithName from "../../assets/logo/logoWithName.svg"
 
 interface ILayout {
   children: ReactNode
@@ -14,7 +13,7 @@ const s = {
 const Layout: FC<ILayout> = ({ children }) => (
   <div className={s.wrapper}>
     <div className={s.logo}>
-      <img src={logoWithName} alt="Logo" width={180} />
+      <img src="logo/logoWithName.svg" alt="Logo" width={180} />
     </div>
     <main className={s.container}>{children}</main>
   </div>
