@@ -1,3 +1,10 @@
-const App = () => <div className="text-indigo-500">Hello World</div>
+import Layout from "./components/Layout"
+import Home from "./pages/Home"
+
+const App = () => (
+  <Layout>
+    <Home />
+  </Layout>
+)
 
 export default App
