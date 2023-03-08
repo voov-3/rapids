@@ -1,4 +1,5 @@
 export type { ICar } from "./car"
+export type { Page } from "./page"
 export type {
   XOrds,
   YOrds,
