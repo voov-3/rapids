@@ -11,10 +11,12 @@ interface ISolvingPage {
 
 const s = {
   container: `fit-height flex flex-col justify-start items-center py-8`,
-  imgWrapper: `max-w-md`,
+  title: `inline-block font-medium text-lg text-gray-700 tracking-wider animate-pulse`,
+  imgWrapper: `max-w-md mt-8`,
   image: `rounded w-full h-auto`,
-  btnContainer: `flex justify-between items-center space-x-8 mt-4`,
-  submit: `bg-black text-white text-sm rounded px-4 py-2.5`
+  btnContainer: `flex justify-between items-center space-x-4 mt-4`,
+  submit: `bg-black text-white text-sm rounded py-2.5 w-24`,
+  remove: `bg-teal-500 text-white text-sm rounded py-2.5 w-24`
 }
 
 const SolvingPage: FC<ISolvingPage> = ({ onChangePage }) => {
@@ -43,9 +45,16 @@ const SolvingPage: FC<ISolvingPage> = ({ onChangePage }) => {
     onChangePage("thanks")
   }
 
+  const handleRemove = () => {
+    setAreas([])
+  }
+
   return (
     cars && (
       <div className={s.container}>
+        <span className={s.title}>
+          {areas.length > 0 ? "Submit!" : "Highlight the car!"}
+        </span>
         <div className={s.imgWrapper}>
           <BoundingBox areas={areas} onChange={onChangeHandler}>
             <img
@@ -56,6 +65,13 @@ const SolvingPage: FC<ISolvingPage> = ({ onChangePage }) => {
           </BoundingBox>
         </div>
         <div className={s.btnContainer}>
+          <Button
+            className={s.remove}
+            disabled={areas.length === 0}
+            onClick={handleRemove}
+          >
+            Clear
+          </Button>
           <Button
             className={s.submit}
             disabled={areas.length === 0}

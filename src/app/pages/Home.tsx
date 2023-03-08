@@ -11,6 +11,8 @@ const Home = () => {
   useEffect(() => {
     if (timeLeft === 0) {
       setPage("solving")
+
+      return
     }
 
     const timer = setInterval(() => {
@@ -18,7 +20,7 @@ const Home = () => {
     }, 1000)
 
     return () => clearInterval(timer)
-  }, [timeLeft, page])
+  }, [timeLeft])
 
   const handleSkipTimer = () => {
     setTimeLeft(0)
