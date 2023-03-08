@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react"
+import { Page } from "../types"
 import InitialPage from "../components/InitialPage"
 import SolvingPage from "../components/SolvingPage"
+import ThanksPage from "../components/ThanksPage"
 
 const Home = () => {
   const [page, setPage] = useState("initial")
@@ -23,12 +25,17 @@ const Home = () => {
     setPage("solving")
   }
 
+  const handleChangePage = (page: Page) => {
+    setPage(page)
+  }
+
   return (
     <>
       {page === "initial" && (
         <InitialPage timeLeft={timeLeft} onSkip={handleSkipTimer} />
       )}
-      {page === "solving" && <SolvingPage />}
+      {page === "solving" && <SolvingPage onChangePage={handleChangePage} />}
+      {page === "thanks" && <ThanksPage />}
     </>
   )
 }

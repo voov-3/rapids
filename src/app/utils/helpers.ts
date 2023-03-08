@@ -173,3 +173,7 @@ export const isSubElement = (el: any, check: (el: any) => boolean): boolean => {
     return isSubElement(el.parentNode, check)
   }
 }
+
+export function getRandomInteger(min: number, max: number) {
+  return Math.floor(Math.random() * (max - min + 1) + min)
+}
